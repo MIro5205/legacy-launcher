@@ -1,0 +1,32 @@
+// Minimal build.gradle — no dependencies whatsoever.
+// Pure Android SDK only. Zero third-party libraries.
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 10   // API 10 = Android 2.3.3, compiles fine for 2.1 targets
+
+    defaultConfig {
+        applicationId      "com.x10launcher"
+        minSdkVersion      7    // Android 2.1
+        targetSdkVersion   10
+        versionCode        1
+        versionName        "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled   true   // ProGuard strips unused code — smaller APK
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Disable unused build features to speed up build and shrink output
+    buildFeatures {
+        // No data binding, no view binding, no compose
+    }
+}
+
+// Zero dependencies — entire app is built on android.jar alone
+dependencies {
+}

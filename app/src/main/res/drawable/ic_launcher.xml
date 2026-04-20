@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Simple blue circle icon — no PNG, no bitmap.
+    Shape drawable = near-zero bytes, renders at any density perfectly.
+    Place in res/drawable/ic_launcher.xml
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#FF1A73E8" />
+</shape>

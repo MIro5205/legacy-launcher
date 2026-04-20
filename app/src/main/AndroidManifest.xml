@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.x10launcher"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <!--
+        android:largeHeap is NOT set — we don't want it.
+        Staying inside the default small heap forces the code to stay lean.
+
+        android:hardwareAccelerated="false" — hardware acceleration
+        was unreliable on Android 2.1 and wastes memory. Software canvas
+        is faster and more predictable on this device.
+    -->
+    <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="10" />
+
+    <application
+        android:label="Launcher"
+        android:icon="@drawable/ic_launcher"
+        android:hardwareAccelerated="false">
+
+        <activity
+            android:name=".LauncherActivity"
+            android:label="Launcher"
+            android:launchMode="singleTask"
+            android:stateNotNeeded="true"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
+
+            <!--
+                Both of these intent-filter entries are required for Android
+                to offer this app as a HOME replacement when the home button
+                is pressed. Without CATEGORY_HOME it will never be offered.
+            -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+    </application>
+
+</manifest>
